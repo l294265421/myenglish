@@ -1,4 +1,4 @@
-package myenglish.entity;
+package myenglish.word.entity;
 
 public class Eetymology {
 	private String word;

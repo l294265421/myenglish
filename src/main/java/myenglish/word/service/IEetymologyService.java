@@ -1,8 +1,8 @@
-package myenglish.service;
+package myenglish.word.service;
 
 import java.util.List;
 
-import myenglish.entity.Eetymology;
+import myenglish.word.entity.Eetymology;
 
 public interface IEetymologyService {
 	public List<Eetymology> getEetymologyByWord(String word);

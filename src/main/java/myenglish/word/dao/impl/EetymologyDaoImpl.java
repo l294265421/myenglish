@@ -1,11 +1,11 @@
-package myenglish.dao.impl;
+package myenglish.word.dao.impl;
 
 import java.util.List;
 
 import javax.swing.tree.RowMapper;
 
-import myenglish.dao.IEetymologyDao;
-import myenglish.entity.Eetymology;
+import myenglish.word.dao.IEetymologyDao;
+import myenglish.word.entity.Eetymology;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

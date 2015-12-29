@@ -1,9 +1,9 @@
 /**
  * 
  */
-package myenglish.dao.impl;
+package myenglish.word.dao.impl;
 
-import myenglish.dao.IMeaningsDao;
+import myenglish.word.dao.IMeaningsDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

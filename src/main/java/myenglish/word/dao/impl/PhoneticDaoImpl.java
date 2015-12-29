@@ -1,6 +1,6 @@
-package myenglish.dao.impl;
+package myenglish.word.dao.impl;
 
-import myenglish.dao.IPhoneticDao;
+import myenglish.word.dao.IPhoneticDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

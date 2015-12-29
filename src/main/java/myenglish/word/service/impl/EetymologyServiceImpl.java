@@ -1,10 +1,10 @@
-package myenglish.service.impl;
+package myenglish.word.service.impl;
 
 import java.util.List;
 
-import myenglish.dao.IEetymologyDao;
-import myenglish.entity.Eetymology;
-import myenglish.service.IEetymologyService;
+import myenglish.word.dao.IEetymologyDao;
+import myenglish.word.entity.Eetymology;
+import myenglish.word.service.IEetymologyService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

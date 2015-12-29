@@ -1,7 +1,7 @@
-package myenglish.dao.impl;
+package myenglish.word.dao.impl;
 
-import myenglish.dao.ICetymologyDao;
-import myenglish.entity.Cetymology;
+import myenglish.word.dao.ICetymologyDao;
+import myenglish.word.entity.Cetymology;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

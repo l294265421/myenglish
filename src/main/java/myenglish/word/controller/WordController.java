@@ -1,16 +1,16 @@
-package myenglish.controller;
+package myenglish.word.controller;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import myenglish.entity.Cetymology;
-import myenglish.entity.Eetymology;
-import myenglish.service.ICetymologyService;
-import myenglish.service.IEetymologyService;
-import myenglish.service.IMeaningsService;
-import myenglish.service.IPhoneticsService;
+import myenglish.word.entity.Cetymology;
+import myenglish.word.entity.Eetymology;
+import myenglish.word.service.ICetymologyService;
+import myenglish.word.service.IEetymologyService;
+import myenglish.word.service.IMeaningsService;
+import myenglish.word.service.IPhoneticsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
