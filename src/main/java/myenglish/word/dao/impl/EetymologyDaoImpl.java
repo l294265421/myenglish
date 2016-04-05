@@ -47,8 +47,7 @@ public class EetymologyDaoImpl implements IEetymologyDao {
 	public List<Eetymology> getEetymologyByWord(String word) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("word", word);
-		return sqlSession.selectList("myenglish.word.po.Eetymology."
-				+ "getEetymologyByWord", params);
+		return sqlSession.selectList("myenglish.word.po.Eetymology.getEetymologyByWord", params);
 	}
 
 }

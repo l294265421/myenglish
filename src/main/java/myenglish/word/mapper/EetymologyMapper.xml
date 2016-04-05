@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myenglish.word.IEetymologyDao">
     <!--配置一个resultMap 指定返回的类型 -->
-    <resultMap id="Eetymologys" type="myenglish.word.po.Eetymology">
-        <id column="word" property="word" />
+    <resultMap id="eetymologys" type="myenglish.word.po.Eetymology">
+        <result column="word" property="word" />
         <result column="eetymology" property="eetymology" />
     </resultMap>
     
 	<select id="getEetymologyByWord" parameterType="String"
-		resultType="Eetymologys">
-		SELECT * FROM eetymology WHERE word LIKE '#{word}(%)'
+		resultMap="eetymologys">
+		SELECT * FROM eetymology WHERE word LIKE '#{word}'
 	</select>
 </mapper>
