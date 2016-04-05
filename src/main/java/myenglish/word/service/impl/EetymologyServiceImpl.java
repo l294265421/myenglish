@@ -3,7 +3,7 @@ package myenglish.word.service.impl;
 import java.util.List;
 
 import myenglish.word.dao.IEetymologyDao;
-import myenglish.word.entity.Eetymology;
+import myenglish.word.po.Eetymology;
 import myenglish.word.service.IEetymologyService;
 
 import org.springframework.beans.factory.annotation.Autowired;

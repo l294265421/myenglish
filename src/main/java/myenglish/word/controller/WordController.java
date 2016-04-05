@@ -5,8 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import myenglish.word.entity.Cetymology;
-import myenglish.word.entity.Eetymology;
+import myenglish.word.po.Cetymology;
+import myenglish.word.po.Eetymology;
 import myenglish.word.service.ICetymologyService;
 import myenglish.word.service.IEetymologyService;
 import myenglish.word.service.IMeaningsService;
@@ -30,7 +30,7 @@ public class WordController {
 	@Autowired
 	private ICetymologyService cetymologyServiceImpl;
 	
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = {"/home", "/"})
 	public String home(Model model, HttpServletRequest request,
 			HttpServletResponse response){
 		return "home";

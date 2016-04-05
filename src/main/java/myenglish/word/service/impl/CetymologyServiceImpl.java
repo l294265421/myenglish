@@ -1,7 +1,7 @@
 package myenglish.word.service.impl;
 
 import myenglish.word.dao.ICetymologyDao;
-import myenglish.word.entity.Cetymology;
+import myenglish.word.po.Cetymology;
 import myenglish.word.service.ICetymologyService;
 
 import org.springframework.beans.factory.annotation.Autowired;

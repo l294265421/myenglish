@@ -1,6 +1,6 @@
 package myenglish.word.service;
 
-import myenglish.word.entity.Cetymology;
+import myenglish.word.po.Cetymology;
 
 public interface ICetymologyService {
 	public Cetymology getCetymologyByWord(String word);

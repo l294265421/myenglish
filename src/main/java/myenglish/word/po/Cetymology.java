@@ -1,4 +1,4 @@
-package myenglish.word.entity;
+package myenglish.word.po;
 
 public class Cetymology {
 	private String word;
