@@ -18,31 +18,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class EetymologyDaoImpl implements IEetymologyDao {
 	@Autowired
-	@Qualifier("jdbcTemplate")
-	private JdbcTemplate jdbcTemplate;
-	
-	@Autowired
 	private SqlSession sqlSession;
 	
-	private String tableName = "eetymology";
-	
-	public List<Eetymology> getEetymologyByWord1(String word) {
-		// TODO Auto-generated method stub
-		List<Eetymology> eetymologies = null;
-		String sql = "SELECT * from " + tableName + " WHERE word LIKE '" + word + " (%)'";
-		String sql2 = "SELECT * from " + tableName + " WHERE word = '" + word + "'";
-		try {
-			BeanPropertyRowMapper<Eetymology> rowMapper = new BeanPropertyRowMapper<Eetymology>(Eetymology.class);
-			eetymologies = jdbcTemplate.query(sql, rowMapper);
-			Eetymology eetymology = jdbcTemplate.queryForObject(sql2, rowMapper);
-			eetymologies.add(eetymology);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return eetymologies;
-	}
-
 	@Override
 	public List<Eetymology> getEetymologyByWord(String word) {
 		Map<String, Object> params = new HashMap<String, Object>();

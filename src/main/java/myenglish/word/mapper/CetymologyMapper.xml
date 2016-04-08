@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myenglish.word.ICetymologyDao">
+	<select id="getCetymologyByWord" parameterType="String"
+		resultType="myenglish.word.po.Cetymology">
+		SELECT * from cetymology WHERE word = #{word}
+	</select>
+
+	<insert id="insertCetymology">
+		INSERT cetymology VALUES(#{cetymology.word},
+		#{cetymology.parent}, #{cetymology.cetymology})
+	</insert>
+
+	<update id="updateCetymology">
+		UPDATE cetymology SET parent=#{cetymology.parent},
+		cetymology=#{cetymology.cetymology} WHERE word = #{cetymology.word}
+	</update>
+</mapper>

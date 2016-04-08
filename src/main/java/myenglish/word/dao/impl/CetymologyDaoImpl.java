@@ -1,8 +1,12 @@
 package myenglish.word.dao.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import myenglish.word.dao.ICetymologyDao;
 import myenglish.word.po.Cetymology;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -13,38 +17,26 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CetymologyDaoImpl implements ICetymologyDao {
 	@Autowired
-	@Qualifier("jdbcTemplate")
-	private JdbcTemplate jdbcTemplate;
+	private SqlSession sqlSession;
 
-	private String tableName = "cetymology";
-
+	@Override
 	public Cetymology getCetymologyByWord(String word) {
-		// TODO Auto-generated method stub
-		Cetymology cetymology = null;
-		String sql = "SELECT * FROM " + tableName + " WHERE word = '" + word
-				+ "'";
-		try {
-			RowMapper<Cetymology> rowMapper = new BeanPropertyRowMapper<Cetymology>(
-					Cetymology.class);
-			cetymology = jdbcTemplate.queryForObject(sql, rowMapper);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return cetymology;
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("word", word);
+		return sqlSession.selectOne("myenglish.word.ICetymologyDao.getCetymologyByWord", params);
 	}
 
+	@Override
 	public int insertCetymology(Cetymology cetymology) {
-		// TODO Auto-generated method stub
-		String sql = "INSERT " + tableName + " VALUES(?, ?, ?)";
-		return jdbcTemplate.update(sql, cetymology.getWord(),
-				cetymology.getParent(), cetymology.getCetymology());
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("cetymology", cetymology);
+		return sqlSession.insert("myenglish.word.ICetymologyDao.insertCetymology", params);
 	}
 
+	@Override
 	public int updateCetymology(Cetymology cetymology) {
-		// TODO Auto-generated method stub
-		String sql = "UPDATE " + tableName + " SET parent=?, cetymology=? WHERE word = ?";
-		return jdbcTemplate.update(sql, cetymology.getParent(),
-				cetymology.getCetymology(), cetymology.getWord());
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("cetymology", cetymology);
+		return sqlSession.update("myenglish.word.ICetymologyDao.updateCetymology", params);
 	}
 }
