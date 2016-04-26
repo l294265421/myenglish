@@ -36,10 +36,10 @@ public class WordController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/newhome")
+	@RequestMapping(value = "/test")
 	public String newHome(Model model, HttpServletRequest request,
 			HttpServletResponse response){
-		return "newhome";
+		return "test";
 	}
 	
 	@RequestMapping(value = "/word")
@@ -123,4 +123,9 @@ public class WordController {
 		}
 	}
 
+	@RequestMapping(value = "/inputautocompletion")
+	@ResponseBody
+	public List<String> inputautocompletion(HttpServletRequest request) {
+		return null;
+	}
 }
