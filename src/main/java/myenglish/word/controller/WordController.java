@@ -45,7 +45,10 @@ public class WordController {
 	@RequestMapping(value = "/word")
 	public String word(Model model, HttpServletRequest request,
 			HttpServletResponse response){
-		String word = request.getParameter("word").trim();
+		String word = request.getParameter("word");
+		if (word == null || word.trim().length() == 0) {
+			return "";
+		}
 		
 		model.addAttribute("word", word);
 		

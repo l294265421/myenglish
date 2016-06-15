@@ -9,6 +9,6 @@
     
 	<select id="getEetymologyByWord" parameterType="String"
 		resultMap="eetymologys">
-		SELECT * FROM eetymology WHERE word LIKE CONCAT(CONCAT('%', #{word}), '%')
+		SELECT * FROM eetymology WHERE word LIKE CONCAT(#{word}, ' (%)')
 	</select>
 </mapper>
