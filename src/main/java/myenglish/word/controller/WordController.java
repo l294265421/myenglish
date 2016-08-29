@@ -5,19 +5,22 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import myenglish.common.IpUtil;
+import myenglish.log.WordMDC;
 import myenglish.word.po.Cetymology;
 import myenglish.word.po.Eetymology;
 import myenglish.word.service.ICetymologyService;
 import myenglish.word.service.IEetymologyService;
 import myenglish.word.service.IMeaningsService;
 import myenglish.word.service.IPhoneticsService;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class WordController {
@@ -29,6 +32,7 @@ public class WordController {
 	private IEetymologyService eetymologyServiceImpl;
 	@Autowired
 	private ICetymologyService cetymologyServiceImpl;
+	private Logger logger = LoggerFactory.getLogger(WordController.class);
 	
 	@RequestMapping(value = {"/home", "/"})
 	public String home(Model model, HttpServletRequest request,
@@ -46,24 +50,29 @@ public class WordController {
 	public String word(Model model, HttpServletRequest request,
 			HttpServletResponse response){
 		String word = request.getParameter("word");
+		String ip = IpUtil.getClientIp(request);
+		WordMDC.putWordValues(ip, word);
 		if (word == null || word.trim().length() == 0) {
 			return "";
 		}
 		
 		model.addAttribute("word", word);
 		
+		logger.info("查询音标");
 		String phonetic = phoneticServiceImpl.getPhoneticByWord(word);
 		if (org.apache.commons.lang.StringUtils.isBlank(phonetic)) {
 			phonetic = "";
 		}
 		model.addAttribute("phonetic", phonetic);
 		
+		logger.info("查询中文意思");
 		String meanings = meaningsServiceImpl.getMeaningsByWord(word);
 		if (org.apache.commons.lang.StringUtils.isBlank(meanings)) {
 			meanings = "";
 		}
 		model.addAttribute("meanings", meanings);
 		
+		logger.info("查询中文词源");
 		Cetymology cetymology = cetymologyServiceImpl.getCetymologyByWord(word);
         if (cetymology == null) {
 			cetymology = new Cetymology();
@@ -72,9 +81,12 @@ public class WordController {
 		}
 		model.addAttribute("cetymology", cetymology);
         
+		logger.info("查询英文词源");
 		List<Eetymology> eetymologies = eetymologyServiceImpl.getEetymologyByWord(word);
 		model.addAttribute("eetymologies", eetymologies);
-
+		
+		WordMDC.clearWordValues();
+		
 		return "word";
 	}
 	
