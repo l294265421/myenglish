@@ -24,7 +24,7 @@
 		<!-- 如果某个连接的空闲时间超过60秒,则自动关闭连接 -->
 		<property name="maxIdleTime" value="60" />
 		<!-- 初始化连接数 -->
-		<property name="initialPoolSize" value="5" />
+		<property name="initialPoolSize" value="20" />
 		<!-- 最小连接数 -->
 		<property name="minPoolSize" value="20" />
 		<!-- 最大连接数 -->

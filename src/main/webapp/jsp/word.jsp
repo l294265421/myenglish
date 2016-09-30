@@ -5,23 +5,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width" name="viewport">
 <title>word</title>
 <style type="text/css">
 a:link { color: #800020; text-decoration: none; font-weight: bold; }
 
 #search{
 text-align: center;
-font-size:28px;
+font-size:2em;
+}
+
+#search input{
+	height:2em;
 }
 
 #content{
 text-align: left;
-font-size:24px;
+font-size:1.5em;
 }
 
 .pos_top{
 position: relative;
-top: 200px;
+top: 3em;
 }
 </style>
 <script type="text/javascript">
@@ -98,12 +103,12 @@ if (xmlhttp.readyState==4 && xmlhttp.status==200)
 }
 </script>
 </head>
-<body>
+<body onload = "document.getElementById('searchWord').focus();">
 <form action="word" method="get">
 <div id = "search" class = "pos_top">
 word:
-<input type="text" name="word" size="40" maxlength="255"/>
-<input type="submit" value="search" />
+<input type="text" name="word" id="searchWord"/>
+<input type="submit" value="search"/>
 </div><!-- SEARCH -->
 </form>
 
@@ -143,7 +148,7 @@ ${eetymology.eetymology}
 <br/>
 <br/>
 词源详解：
-<textarea id = "newWordCetymology"  name = "newWordCetymology" rows='5' cols='81'></textarea>
+<textarea id = "newWordCetymology"  name = "newWordCetymology" rows='5'></textarea>
 <input type="button" onclick="postCEInsert()" value='提交'> 
 <input type="button" onclick="postCEUpdate()" value='修改'> 
 </div>

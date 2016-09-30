@@ -9,21 +9,25 @@
 <style type="text/css">
 #search{
 text-align: center;
-font-size:28px;
+font-size:2em;
+}
+
+#search input{
+	height:2em;
 }
 
 .pos_top{
 position: relative;
-top: 200px;
+top: 3em;
 }
 </style>
 </head>
-<body>
+<body onload = "document.getElementById('searchWord').focus();">
 <form action="word" method="get">
-<div id="search" class = "pos_top">
+<div id = "search" class = "pos_top">
 word:
-<input type="text" name="word" size="40" maxlength="255"/>
-<input type="submit" value="search" />
+<input type="text" name="word" id="searchWord"/>
+<input type="submit" value="search"/>
 </div><!-- SEARCH -->
 </form>
 </body>
