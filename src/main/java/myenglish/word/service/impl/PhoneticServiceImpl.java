@@ -19,4 +19,9 @@ public class PhoneticServiceImpl implements IPhoneticsService{
 		return phonetic;
 	}
 
+	@Override
+	public void saveWordPhonetic(String word, String phonetic) {
+		phoneticDaoImpl.saveWordPhonetic(word, phonetic);
+	}
+
 }

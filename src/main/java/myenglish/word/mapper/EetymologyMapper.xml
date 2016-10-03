@@ -11,4 +11,8 @@
 		resultMap="eetymologys">
 		SELECT * FROM eetymology WHERE word LIKE CONCAT(#{word}, ' (%)') OR word = #{word}
 	</select>
+	
+	<insert id="saveEetymology">
+		INSERT INTO eetymology (word, eetymology) VALUES (#{eetymology.word}, #{eetymology.eetymology})
+	</insert>
 </mapper>

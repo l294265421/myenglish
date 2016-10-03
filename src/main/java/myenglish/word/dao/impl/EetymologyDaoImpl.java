@@ -27,4 +27,12 @@ public class EetymologyDaoImpl implements IEetymologyDao {
 		return sqlSession.selectList("myenglish.word.IEetymologyDao.getEetymologyByWord", params);
 	}
 
+	@Override
+	public void saveEetymology(Eetymology eetymology) {
+		// TODO Auto-generated method stub
+		Map<String, Object> parameter = new HashMap<String, Object>();
+		parameter.put("eetymology", eetymology);
+		sqlSession.insert("myenglish.word.IEetymologyDao.saveEetymology", parameter);
+	}
+
 }

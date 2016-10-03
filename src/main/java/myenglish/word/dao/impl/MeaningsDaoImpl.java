@@ -30,4 +30,13 @@ public class MeaningsDaoImpl implements IMeaningsDao {
 		return sqlSession.selectOne("myenglish.word.IMeaningsDao.getMeaningsByWord", params);
 	}
 
+	@Override
+	public void saveWordMeanings(String word, String meaning) {
+		Map<String, String> parameter = new HashMap<String, String>();
+		parameter.put("word", word);
+		parameter.put("meaning", meaning);
+		sqlSession.insert("myenglish.word.IMeaningsDao.saveWordMeanings", parameter);
+		
+	}
+
 }

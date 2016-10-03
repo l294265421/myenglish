@@ -5,4 +5,7 @@
 		resultType="String">
 		SELECT meaning from meanings WHERE word = #{word}
 	</select>
+	<insert id="saveWordMeanings">
+		INSERT INTO meanings (word, meaning) VALUES (#{word}, #{meaning})
+	</insert>
 </mapper>

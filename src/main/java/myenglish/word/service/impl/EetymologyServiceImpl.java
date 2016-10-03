@@ -19,5 +19,9 @@ public class EetymologyServiceImpl implements IEetymologyService {
 		List<Eetymology> eetymologies = eetymologyDaoImpl.getEetymologyByWord(word);
 		return eetymologies;
 	}
+	@Override
+	public void saveEetymology(Eetymology eetymology) {
+		eetymologyDaoImpl.saveEetymology(eetymology);
+	}
 
 }

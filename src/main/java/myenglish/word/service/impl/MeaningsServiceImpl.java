@@ -16,5 +16,9 @@ public class MeaningsServiceImpl implements IMeaningsService {
 		// TODO Auto-generated method stub
 		return meaningsDaoImpl.getMeaningsByWord(word);
 	}
+	@Override
+	public void saveWordMeanings(String word, String meaning) {
+		meaningsDaoImpl.saveWordMeanings(word, meaning);
+	}
 
 }

@@ -23,4 +23,12 @@ public class PhoneticDaoImpl implements IPhoneticDao {
 		return sqlSession.selectOne("myenglish.word.IPhoneticDao.getPhoneticByWord", params);
 	}
 
+	@Override
+	public void saveWordPhonetic(String word, String phonetic) {
+		Map<String, String> parameter = new HashMap<String, String>();
+		parameter.put("word", word);
+		parameter.put("phonetic", phonetic);
+		sqlSession.insert("myenglish.word.IPhoneticDao.saveWordPhonetic", parameter);
+	}
+
 }

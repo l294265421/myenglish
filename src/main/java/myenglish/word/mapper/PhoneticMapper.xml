@@ -5,4 +5,7 @@
 		resultType="String">
 		SELECT phonetic from phonetics WHERE word = #{word}
 	</select>
+	<insert id="saveWordPhonetic">
+		INSERT INTO phonetics (word, phonetic) VALUES (#{word}, #{phonetic})
+	</insert>
 </mapper>

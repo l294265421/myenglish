@@ -6,4 +6,5 @@ import myenglish.word.po.Eetymology;
 
 public interface IEetymologyService {
 	public List<Eetymology> getEetymologyByWord(String word);
+	public void saveEetymology(Eetymology eetymology);
 }
