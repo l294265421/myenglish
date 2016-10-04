@@ -20,38 +20,15 @@ import org.springframework.stereotype.Repository;
 
 import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
 @Repository
-public class EetymologyDaoImpl implements IEetymologyDao {
+public class EetymologyDaoMysqlImpl implements IEetymologyDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override
 	public List<Eetymology> getEetymologyByWord(String word) {
-//		Map<String, Object> params = new HashMap<String, Object>();
-//		params.put("word", word);
-//		return sqlSession.selectList("myenglish.word.IEetymologyDao.getEetymologyByWord", params);
-		List<Eetymology> result = new LinkedList<Eetymology>();
-		
-		String databaseHome = "berkelydb";
-		
-		String indexDatabase = "eetymologyIndex";
-		BerkelyDbCRUD berkelyDbCRUD = new BerkelyDbCRUD();
-		berkelyDbCRUD.init(databaseHome, indexDatabase);
-		
-		String children = berkelyDbCRUD.get(word);
-		if (StringUtils.isBlank(children)) {
-			return result;
-		}
-		
-		String dataDatabase = "eetymologyData";
-		BerkelyDbCRUD berkelyDbCRUD2 = new BerkelyDbCRUD();
-		berkelyDbCRUD2.init(databaseHome, dataDatabase);
-		for(String child : children.split("#")){
-			Eetymology eetymology = new Eetymology();
-			eetymology.setWord(child);
-			eetymology.setEetymology(berkelyDbCRUD2.get(child));
-			result.add(eetymology);
-		}
-		return result; 
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("word", word);
+		return sqlSession.selectList("myenglish.word.IEetymologyDao.getEetymologyByWord", params);
 	}
 
 	@Override

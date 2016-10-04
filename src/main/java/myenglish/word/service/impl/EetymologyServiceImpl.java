@@ -12,15 +12,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class EetymologyServiceImpl implements IEetymologyService {
 	@Autowired
-	@Qualifier("eetymologyDaoImpl")
-    private IEetymologyDao eetymologyDaoImpl;
+	@Qualifier("eetymologyDaoBerkelyDbImpl")
+    private IEetymologyDao eetymologyDaoBerkelyDbImpl;
 	public List<Eetymology> getEetymologyByWord(String word) {
-		List<Eetymology> eetymologies = eetymologyDaoImpl.getEetymologyByWord(word);
+		List<Eetymology> eetymologies = eetymologyDaoBerkelyDbImpl.getEetymologyByWord(word);
 		return eetymologies;
 	}
 	@Override
 	public void saveEetymology(Eetymology eetymology) {
-		eetymologyDaoImpl.saveEetymology(eetymology);
+		eetymologyDaoBerkelyDbImpl.saveEetymology(eetymology);
 	}
 
 }

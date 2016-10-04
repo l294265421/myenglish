@@ -1,11 +1,12 @@
 package myenglish.word.po;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class Eetymology {
 	private String word;
     private String eetymology;
     
     public Eetymology() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Eetymology(String word, String eetymology) {
@@ -29,4 +30,10 @@ public class Eetymology {
 	public void setEetymology(String eetymology) {
 		this.eetymology = eetymology;
 	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+	
 }
