@@ -14,15 +14,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class MeaningsServiceImpl implements IMeaningsService {
 	@Autowired
-	@Qualifier("meaningsDaoImpl")
-	private IMeaningsDao meaningsDaoImpl;
+	@Qualifier("meaningsDaoBerkelyDbImpl")
+	private IMeaningsDao meaningsDaoBerkelyDbImpl;
 	public String getMeaningsByWord(String word) {
-		// TODO Auto-generated method stub
-		return meaningsDaoImpl.getMeaningsByWord(word);
+		return meaningsDaoBerkelyDbImpl.getMeaningsByWord(word);
 	}
 	@Override
 	public void saveWordMeanings(String word, String meaning) {
-		meaningsDaoImpl.saveWordMeanings(word, meaning);
+		meaningsDaoBerkelyDbImpl.saveWordMeanings(word, meaning);
 	}
 	@Override
 	public String getMeaningFromHtml(String html) {

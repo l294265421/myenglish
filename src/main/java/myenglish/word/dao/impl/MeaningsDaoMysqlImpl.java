@@ -19,7 +19,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public class MeaningsDaoImpl implements IMeaningsDao {
+public class MeaningsDaoMysqlImpl implements IMeaningsDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
