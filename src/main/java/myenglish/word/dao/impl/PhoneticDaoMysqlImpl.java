@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PhoneticDaoImpl implements IPhoneticDao {
+public class PhoneticDaoMysqlImpl implements IPhoneticDao {
 	@Autowired
 	private SqlSession sqlSession;
 

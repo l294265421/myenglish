@@ -22,8 +22,8 @@ public class EetymologyDaoBerkelyDbImpl implements IEetymologyDao {
 		String indexDatabase = "eetymologyIndex";
 		BerkelyDbCRUD berkelyDbCRUD = new BerkelyDbCRUD();
 		berkelyDbCRUD.init(databaseHome, indexDatabase);
-		
 		String children = berkelyDbCRUD.get(word);
+		berkelyDbCRUD.destroy();
 		if (StringUtils.isBlank(children)) {
 			return result;
 		}
@@ -37,6 +37,7 @@ public class EetymologyDaoBerkelyDbImpl implements IEetymologyDao {
 			eetymology.setEetymology(berkelyDbCRUD2.get(child));
 			result.add(eetymology);
 		}
+		berkelyDbCRUD2.destroy();
 		return result; 
 	}
 

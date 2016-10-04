@@ -14,17 +14,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class PhoneticServiceImpl implements IPhoneticsService{
 	@Autowired
-	@Qualifier("phoneticDaoImpl")
-    private IPhoneticDao phoneticDaoImpl;
+	@Qualifier("phoneticDaoBerkelyDbImpl")
+    private IPhoneticDao phoneticDaoBerkelyDbImpl;
 	
 	public String getPhoneticByWord(String word) {
-		String phonetic = phoneticDaoImpl.getPhoneticByWord(word);
+		String phonetic = phoneticDaoBerkelyDbImpl.getPhoneticByWord(word);
 		return phonetic;
 	}
 
 	@Override
 	public void saveWordPhonetic(String word, String phonetic) {
-		phoneticDaoImpl.saveWordPhonetic(word, phonetic);
+		phoneticDaoBerkelyDbImpl.saveWordPhonetic(word, phonetic);
 	}
 
 	@Override
