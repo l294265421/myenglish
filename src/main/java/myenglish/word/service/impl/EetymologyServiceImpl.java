@@ -15,7 +15,6 @@ public class EetymologyServiceImpl implements IEetymologyService {
 	@Qualifier("eetymologyDaoImpl")
     private IEetymologyDao eetymologyDaoImpl;
 	public List<Eetymology> getEetymologyByWord(String word) {
-		// TODO Auto-generated method stub
 		List<Eetymology> eetymologies = eetymologyDaoImpl.getEetymologyByWord(word);
 		return eetymologies;
 	}
