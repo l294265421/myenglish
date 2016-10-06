@@ -31,6 +31,9 @@ public class MeaningsServiceImpl implements IMeaningsService {
 		String meaning = meaningsDaoBerkelyDbImpl.getMeaningsByWord(word);
 		if (StringUtils.isBlank(meaning)) {
 			meaning = getMeaningFromInternet(word);
+			if (StringUtils.isNoneBlank(meaning)) {
+				saveWordMeanings(word, meaning);
+			}
 		}
 		
 		return meaning;
@@ -45,16 +48,20 @@ public class MeaningsServiceImpl implements IMeaningsService {
 			return "";
 		}
 		Document document = Jsoup.parse(html);
-		Element element = document.select(".base-list").first();
-		if (element == null) {
+		Element elementWithInbaseClass = document.select("[class=in-base]").first();
+		if (elementWithInbaseClass == null) {
 			return "";
 		}
-		Elements needToRemoveClass = element.select("*");
+		Element ul = elementWithInbaseClass.getElementsByTag("ul").first();
+		if (ul == null) {
+			return "";
+		}
+		Elements needToRemoveClass = ul.select("*");
 		for (Element element2 : needToRemoveClass) {
 			element2.removeAttr("class");
 		}
 		
-		return element.outerHtml();
+		return ul.outerHtml();
 	}
 	@Override
 	public String getMeaningFromInternet(String word) {
