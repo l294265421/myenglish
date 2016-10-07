@@ -8,7 +8,7 @@ import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
 
 @Repository
 public class PhoneticDaoBerkelyDbImpl implements IPhoneticDao {
-	private String databaseHome = "berkelydb";
+	private String databaseHome = "./berkelydb";
 	private String databaseName = "phonetic";
 	@Override
 	public String getPhoneticByWord(String word) {

@@ -12,12 +12,10 @@ import org.springframework.stereotype.Repository;
 import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
 @Repository
 public class EetymologyDaoBerkelyDbImpl implements IEetymologyDao {
-	
+	private String databaseHome = "berkelydb";
 	@Override
 	public List<Eetymology> getEetymologyByWord(String word) {
 		List<Eetymology> result = new LinkedList<Eetymology>();
-		
-		String databaseHome = "berkelydb";
 		
 		String indexDatabase = "eetymologyIndex";
 		BerkelyDbCRUD berkelyDbCRUD = new BerkelyDbCRUD();

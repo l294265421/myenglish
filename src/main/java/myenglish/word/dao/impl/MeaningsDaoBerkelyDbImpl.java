@@ -15,7 +15,7 @@ import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
  */
 @Repository
 public class MeaningsDaoBerkelyDbImpl implements IMeaningsDao {
-	private String databaseHome = "berkelydb";
+	private String databaseHome = "./berkelydb";
 	private String databaseName = "meaning";
 	
 	@Override
