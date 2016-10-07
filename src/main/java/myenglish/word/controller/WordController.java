@@ -56,6 +56,7 @@ public class WordController {
 			return "";
 		}
 		
+		word = word.trim();
 		model.addAttribute("word", word);
 		
 		logger.info("查询音标");
