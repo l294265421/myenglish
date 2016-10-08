@@ -5,6 +5,7 @@ package myenglish.word.dao.impl;
 
 import myenglish.word.dao.IMeaningsDao;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
@@ -15,7 +16,8 @@ import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
  */
 @Repository
 public class MeaningsDaoBerkelyDbImpl implements IMeaningsDao {
-	private String databaseHome = "./berkelydb";
+	@Value("${BerkeleyDB.Home}")
+	private String databaseHome;
 	private String databaseName = "meaning";
 	
 	@Override

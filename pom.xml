@@ -7,6 +7,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>myenglish Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<deploy.filter>filters/dev.properties</deploy.filter>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -153,5 +157,33 @@
 	</dependencies>
 	<build>
 		<finalName>myenglish</finalName>
+		<filters>
+			<filter>${deploy.filter}</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<deploy.filter>filters/dev.properties</deploy.filter>
+			</properties>
+             <!-- 默认激活本环境 -->
+             <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+		</profile>
+		<profile>
+			<id>production</id>
+			<properties>
+				<deploy.filter>filters/production.properties</deploy.filter>
+			</properties>
+		</profile>
+	</profiles>
 </project>

@@ -2,13 +2,15 @@ package myenglish.word.dao.impl;
 
 import myenglish.word.dao.IPhoneticDao;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
 
 @Repository
 public class PhoneticDaoBerkelyDbImpl implements IPhoneticDao {
-	private String databaseHome = "./berkelydb";
+	@Value("${BerkeleyDB.Home}")
+	private String databaseHome;
 	private String databaseName = "phonetic";
 	@Override
 	public String getPhoneticByWord(String word) {

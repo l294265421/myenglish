@@ -9,6 +9,8 @@
 	<context:component-scan base-package="myenglish">
 	</context:component-scan>
 	
+	<context:property-placeholder location="classpath:config.properties"/>
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/jsp/"></property>

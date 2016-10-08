@@ -7,12 +7,14 @@ import myenglish.word.dao.IEetymologyDao;
 import myenglish.word.po.Eetymology;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.liyuncong.learn.learnbberkelydb.BerkelyDbCRUD;
 @Repository
 public class EetymologyDaoBerkelyDbImpl implements IEetymologyDao {
-	private String databaseHome = "berkelydb";
+	@Value("${BerkeleyDB.Home}")
+	private String databaseHome;
 	@Override
 	public List<Eetymology> getEetymologyByWord(String word) {
 		List<Eetymology> result = new LinkedList<Eetymology>();
